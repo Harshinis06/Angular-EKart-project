@@ -34,24 +34,21 @@
   <div *ngIf="selectedRadioFilterButton === 'all' || prod.is_in_inventory.toString() === selectedRadioFilterButton"></div>
 </ng-template> -->
 
-<app-filter 
-[all]="totalstock" 
-[InStock]="productInstock" 
-[OutOfStock]="productOutOfStock" 
-(selectRadioEvent)="onFilter($event)">
+<app-filter [all]="totalstock" [InStock]="productInstock" [OutOfStock]="productOutOfStock"
+  (selectRadioEvent)="onFilter($event)">
 </app-filter>
 <div class="container">
-  <!-- *ngIf="selectedRadioFilterButton === 'all' || prod.is_in_inventory.toString() === selectedRadioFilterButton" -->
   <ng-container *ngFor="let prod of products">
-    <app-product 
-    [products]="prod" 
-    *ngIf="searchText === '' || prod.name.toLowerCase().includes(searchText) 
-    || prod.gender.toLowerCase().startsWith(searchText) 
-    || prod.category.toLowerCase().includes(searchText) 
-    " 
-    (click)="searchedItems=prod"
-    >
-  </app-product>
-  </ng-container  >
-  
-  </div>
+    <app-product [products]="prod" *ngIf="(
+        selectedRadioFilterButton === 'all' ||
+        prod.is_in_inventory.toString() === selectedRadioFilterButton
+      ) &&
+      (searchText === '' ||
+       prod.name.toLowerCase().includes(searchText) ||
+       prod.gender.toLowerCase().startsWith(searchText) ||
+       prod.category.toLowerCase().includes(searchText))
+    " (click)="searchedItems=prod">
+    </app-product>
+  </ng-container>
+
+</div>

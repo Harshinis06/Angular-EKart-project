@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { Product } from '../../Model/product';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { NgIf,NgFor } from '@angular/common';
-import { SetBackGound } from '../customDirective/Background.directive';
+import { SetBackGound } from '../customDerictive/Background.directive';
 
 
 @Component({
   selector: 'product-details',
+  standalone: true,
   imports: [NgIf,NgFor,SetBackGound],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'

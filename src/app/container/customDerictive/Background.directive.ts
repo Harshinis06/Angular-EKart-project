@@ -1,7 +1,8 @@
 import { Directive, ElementRef, OnInit, Renderer2 } from "@angular/core";
 
 @Directive({
-    selector :'[SetBackGound]'
+    selector: '[SetBackGound]',
+    standalone: true
 })
 // export class SetBackGound implements OnInit{
 //     // private ele;
@@ -16,19 +17,19 @@ import { Directive, ElementRef, OnInit, Renderer2 } from "@angular/core";
 // }
 
 
-export class SetBackGound implements OnInit{
+export class SetBackGound implements OnInit {
     // private ele;
     // private renderer
-    constructor(private ele:ElementRef,private renderer:Renderer2){
+    constructor(private ele: ElementRef, private renderer: Renderer2) {
         //  this.ele=ele;
         // this.renderer=renderer;
     }
 
-    ngOnInit(){
-// this.ele.nativeElement.style.backgroundColor='orange'
-//    this.ele.nativeElement.style.color='black'
+    ngOnInit() {
+        // this.ele.nativeElement.style.backgroundColor='orange'
+        //    this.ele.nativeElement.style.color='black'
 
-     this.renderer.setStyle(this.ele.nativeElement,'backgroundColor','orange');
-     this.renderer.setStyle(this.ele.nativeElement,'color','black')
+        this.renderer.setStyle(this.ele.nativeElement, 'backgroundColor', 'orange');
+        this.renderer.setStyle(this.ele.nativeElement, 'color', 'black')
     }
 }
